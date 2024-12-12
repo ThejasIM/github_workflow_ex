@@ -6,7 +6,7 @@ on:
 jobs:
   mainjob:
     name: 'Print the Default GitHub vars'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Print values of environment variables
