@@ -5,7 +5,7 @@ on:
 
 jobs:
   passing-values-bw-steps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Set the value using ENV Vars
         run: |
