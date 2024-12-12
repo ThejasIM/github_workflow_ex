@@ -1,6 +1,6 @@
 name: 'Passing Values to Next Jobs'
 
-on: 
+on:
   workflow_dispatch:
 
 jobs:
@@ -11,13 +11,17 @@ jobs:
       output2: ${{ steps.step2.outputs.test }}
     steps:
       - id: step1
-        run: echo "::set-output name=test::ImportantValue1"
+        run: |
+          echo "test=ImportantValue1" >> $GITHUB_ENV
+          echo "test=ImportantValue1" >> $GITHUB_OUTPUT
       
       - id: step2
-        run: echo "::set-output name=test::ImportantValue2"
+        run: |
+          echo "test=ImportantValue2" >> $GITHUB_ENV
+          echo "test=ImportantValue2" >> $GITHUB_OUTPUT
 
   job2:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: job1
     steps:
       - run: |
